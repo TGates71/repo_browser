@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updateserver>
+	<latestversion>102</latestversion>
+	<downloadurl>http://zppy-repo.mach-hosting.com/repo/repo-browser.zpp</downloadurl>
+	<desc>Repo Browser allows you to manage your custom module repositories.</desc>
+	<updatedesc>Sentora Conversion</updatedesc>
+	<authorname>RusTus</authorname>
+	<authoremail>rustus@zpanelcp.com</authoremail>
+	<authorurl>http://www.sentora.org</authorurl>
+	<ostype>all</ostype>
+</updateserver>
