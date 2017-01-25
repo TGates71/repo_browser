@@ -4,9 +4,9 @@
 <version>102</version>
 <type>user</type>
 <defaultcat>Administrator</defaultcat>
-<desc>Repo Browser allows you to manage your custom module repositories.</desc>
-<authorname>RusTus</authorname>
+<desc>Repo Browser allows you to install, remove and update your Sentora modules from user repositories.</desc>
+<authorname>RusTus, TGates</authorname>
 <authoremail>rustus@zpanelcp.com</authoremail>
-<authorurl>http://rustus.txt-clan.com/</authorurl>
+<authorurl>http://www.sentora.org/</authorurl>
 <updateurl>http://zppy-repo.mach-hosting.com/repo/repo_browser.xml</updateurl>
 </module>

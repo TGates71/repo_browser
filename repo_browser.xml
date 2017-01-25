@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <updateserver>
-	<latestversion>102</latestversion>
-	<downloadurl>http://zppy-repo.mach-hosting.com/repo/repo-browser.zpp</downloadurl>
-	<desc>Repo Browser allows you to manage your custom module repositories.</desc>
-	<updatedesc>Sentora Conversion</updatedesc>
-	<authorname>RusTus</authorname>
-	<authoremail>rustus@zpanelcp.com</authoremail>
-	<authorurl>http://www.sentora.org</authorurl>
-	<ostype>all</ostype>
+<latestversion>102</latestversion>
+<downloadurl>http://zppy-repo.mach-hosting.com/repo/repo_browser.zpp</downloadurl>
+<desc>Repo Browser allows you to install, remove and update your Sentora modules from user repositories.</desc>
+<updatedesc>Converted to Sentora. Several bug fixes.</updatedesc>
+<ostype>all</ostype>
+<senversion>1.0.1:1.0.2:1.0.3</senversion>
+<authorname>RusTus, TGates</authorname>
+<authoremail>rustus@zpanelcp.com</authoremail>
+<authorurl>http://www.sentora.org</authorurl>
 </updateserver>

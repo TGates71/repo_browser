@@ -15,8 +15,8 @@
     <% if isConfirmZPPYPatch %>
     <div class="znotice alert alert-block alert-info"><img src="<@ ModulePath @>assets/warning.png" border="0">
         <h2><: ZPPY Patch Needed :></h2>
-        <p><: For Sentora versions BELOW 10.1.0 Repo Browser can not uninstall a module until your zppy file is patched. Your original file will be saved so you can revert back at a later time if you wish. :></p>
-		<p><: Press the PATCH button to install the modded zppy file and try uninstalling the module again. :></p>
+        <p><: For Sentora versions BELOW 1.0.0 Repo Browser can not uninstall a module until your zppy file is patched. Your original file will be saved so you can revert back at a later time if you wish. :></p>
+		<p><: Press the PATCH button to install the modified zppy file and try uninstalling the module again. :></p>
         <form action="./?module=repo_browser&action=PatchZPPY" method="post">
             <table class="none" cellpadding="0" cellspacing="0">
                 <tr>
@@ -36,7 +36,7 @@
     <div class="zform_wrapper panel">
         <div class="panel-heading"><h2><: Remove Repository :>: <@ CurrentRepo @> ?</h2></div>
         <p><: Please confirm that you want to remove this repository from your Sentora server. :></p>
-		<p><strong>NOTE:</strong> Removing the repository will not uninstall any modules, but you will no longer be able to view then in Repo Browser.  Use Module Admin instead.</p>
+		<p><strong><: NOTE: :></strong> <: Removing the repository will not uninstall any modules, but you will no longer be able to view them in Repo Browser. Use Module Admin instead. :></p>
         <form action="./?module=repo_browser&action=ConfirmDeleteRepo" method="post">
             <table class="none" cellpadding="0" cellspacing="0">
                 <tr>
@@ -274,7 +274,7 @@
 						</tr>
 						<tr>
 							<td nowrap>--version</td>
-							<td>- Displays the Zpanel version.</td>
+							<td>- Displays the Sentora version.</td>
 						</tr>
 						<tr>
 							<td nowrap>--help</td>
@@ -295,24 +295,24 @@
 						Custom modules with the same folder name as a Sentora Core Module will not appear in the Repo Browser.  This is by design.
 						</p>
 						<p><img src="<@ ModulePath @>assets/item.png" width="16" height="16">
-						For Sentora versions below 10.1.0, When you run the ZPPY patch, Repo Browser will rename your current ZPPY file to <strong>/etc/bin/zppy_repo_bak</strong> it then copies the patched version of ZPPY to that directory from <strong>/modules/repo_browser/bin/zppy</strong> 
+						For Sentora versions below 1.0.3, When you run the ZPPY patch, Repo Browser will rename your current ZPPY file to <strong>/etc/bin/zppy_repo_bak</strong> it then copies the patched version of ZPPY to that directory from <strong>/modules/repo_browser/bin/zppy</strong> 
 						</p>
 						<p><img src="<@ ModulePath @>assets/item.png" width="16" height="16">
-						If you have a repository and would like your download stats to show up in Repo Browser, then you need to copy the file <strong>/modules/repo_browser/bin/repostats.php</strong> into the base directory of your repository. Make sure to edit that file and change the path variables speciffic to your server.
+						If you have a repository and would like your download stats to show up in Repo Browser, then you need to copy the file <strong>/modules/repo_browser/bin/repostats.php</strong> into the base directory of your repository. Make sure to edit that file and change the path variables specific to your server.
 						</p>
 						<p><img src="<@ ModulePath @>assets/item.png" width="16" height="16">
-						Normally if a package is not installed, then there is no way to get any information about it.  If you would like information to show up about a module that has not been installed yet, then Repo Browser will take advantage of the modules update.xml file in your repository. Repo Browser will look for additional XML Tags in that file to display the information.  Adding the extra XML Tags will not hurt the modules normal operation.</p>
+						Normally if a package is not installed, then there is no way to get any information about it.  If you would like information to show up about a module that has not been installed yet, then Repo Browser will take advantage of the modules [modulename].xml file in your repository. Repo Browser will look for additional XML Tags in that file to display the information.  Adding the extra XML Tags will not hurt the module's normal operation.</p>
 						<p>
-						The extra XML tags are the same tags that are found in the module's normal module.xml file: <desc></desc><authorname></authorname><authoremail></authoremail><authorurl></authorurl>. An example of Repo Browsers update.xml file is found below.  Once the XML Tags are in place then if someone has not yet installed your module they will still be able to get the same information about it.<br><br>
-						<strong>SAMPLE UPDATE.XML IN REPOSITORY:</strong> rustus.txt-clan.com/repo_browser.xml<br>
+						The extra XML tags are the same tags that are found in the module's normal module.xml file: <desc></desc><authorname></authorname><authoremail></authoremail><authorurl></authorurl>. An example of Repo Browsers [modulename].xml file is found below.  Once the XML Tags are in place then if someone has not yet installed your module they will still be able to get the same information about it.<br><br>
+						<strong>SAMPLE repo_browser.xml IN REPOSITORY:</strong> rustus.txt-clan.com/repo_browser.xml<br>
 	<xmp>
 	<updateserver>
 	<latestversion>100</latestversion>
-	<downloadurl>http://rustus.txt-clan.com/repo_browser.zpp</downloadurl>
+	<downloadurl>http://zppy-repo.mach-hosting.com/repo/repo_browser.zpp</downloadurl>
 	<desc>Repo Browser allows you to manage your custom module repositories.</desc>
 	<updatedesc>Information can be posted here about your update revisions.</updatedesc>
 	<ostype>all</ostype> NOTE: win=windows only. lin=linux only. all=all operating systems.
-	<zpversion>10.0.2:10.1.0</zpversion>
+	<senversion>1.0.1:1.0.2:1.0.3</senversion>
 	<authorname>RusTus</authorname>
 	<authoremail>rustus@zpanelcp.com</authoremail>
 	<authorurl>http://rustus.txt-clan.com</authorurl>

@@ -5,15 +5,16 @@ $log         = "/etc/logs/domains/zadmin/my-apache-access.log";
 $ignoreip    = "200.200.200.200"; //I use this to ignore how many times I have downloaded anything from my own ip
 
 /* *******************************
- * RepoStats for calculating the number of downloads for custom repo modules. Also works with Repo Browser Module for Sentora 10.X
+ * RepoStats for calculating the number of downloads for custom repo modules. Also works with Repo Browser Module for Sentora
  * Version : 100
  * Author :  RusTus (RusTus @ Sentora Forums)
  * Email : rustus@sentora.org
+ * Maintained by: TGates (http://www.sentora.org)
  * *******************************
  * 
  * THREE WAYS TO USE REPOSTATS:
  * http://my.repository.com/repostats.php <-Returns HTML
- * http://my.repository.com/repostats.php?json=true <-Returns JSON array of packages and doenloads
+ * http://my.repository.com/repostats.php?json=true <-Returns JSON array of packages and downloads
  * http://my.repository.com/repostats.php?cron=true <-Use with CRON or scheduler to create repolist file for Repo Browser module
  * ********************************
  * 
@@ -24,10 +25,10 @@ $ignoreip    = "200.200.200.200"; //I use this to ignore how many times I have d
  * ********************************
  * 
  * NOTES:
- * RepoStats will work with RepoBrowser to calculate downloads in Sentora for your modules.  If you want this feature then
- * Run RepoStats as a CRON (whatever intravel you desire).  This will create a repostatslist file that RepoBrowser will
+ * RepoStats will work with Repo Browser to calculate downloads in Sentora for your modules.  If you want this feature then
+ * Run RepoStats as a CRON (whatever intravel you desire).  This will create a repostatslist file that Repo Browser will
  * look for when getting your download stats for your repository.  If this file does not exist then RepoStats will still
- * work with RepoBrowser by using the JSON setting automatically, however this can be harder on your server depending on
+ * work with Repo Browser by using the JSON setting automatically, however this can be harder on your server depending on
  * the ammount of custom modules you have and the size of your apache access log.
  * To run as a cron use: http://my.repository.com/repostats.php?cron=true
  *
@@ -367,7 +368,7 @@ if (file_exists($log)){
 
 	<h2>ERRORS:</h2>
 	<p>RepoStats has opened your log file: <strong><?php echo $log; ?></strong> but there are no download entries for any modules.</p>
-	<p>When a module is downloaded it Apache will log the download as comming from: "ZppyClient".  You either have the wrong log file, or there are no downloads for your modules yet.</p>
+	<p>When a module is downloaded, Apache will log the download as comming from: "ZppyClient".  You either have the wrong log file, or there are no downloads for your modules yet.</p>
 
 <?php	
 	}

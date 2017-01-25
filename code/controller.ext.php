@@ -1,9 +1,10 @@
 <?php
-
 /**
- *
- * Sentora - repo browser sentora plugin, written by RusTus: www.zpanelcp.com.
- *
+ * Upgrade script for Repo Browser Module for ZPanel 10.X
+ * Version : 101
+ * Author :  RusTus (RusTus @ ZPanel Forums)
+ * Email : rustus@zpanelcp.com
+ * Maintained by: TGates (http://www.sentora.org)
  */
  
 class module_controller {
@@ -27,7 +28,6 @@ class module_controller {
 			$res = array();
 			while (!feof($file_handle)) {
    				$line = trim(fgets($file_handle));
-				//if (strpos($line, "#") === false && !fs_director::CheckForEmptyValue($line) && $line <> "packages.zpanelcp.com"){
 				if (strpos($line, "#") === false && !fs_director::CheckForEmptyValue($line) && $line <> "store.sentora.org"){
 					array_push($res, array('line'   => $line));
 				}
@@ -62,13 +62,10 @@ class module_controller {
 								$modinfo = $zdbh->query("SELECT * FROM x_modules WHERE mo_folder_vc = '" . $content[0] . "'")->fetch();
 								$info = ui_module::GetModuleXMLTags($modinfo['mo_folder_vc']);
 								$description = $modinfo['mo_desc_tx'];
-								// not populating
-								print_r($info[]);
 								$authorurl = $info['authorurl'];
 								$version = $info['version'];
 								$authoremail = $info['authoremail'];
 								$authorname = $info['authorname'];
-								
 								$buttonaction = "Remove";
 								$buttoncss = "button-loader delete btn btn-danger fg-button ui-state-default ui-corner-all";
 								$installedhtml = "<a href=\"./?module=" . $content[0] . "\" title=\"Launch module\">" . $content[0] . "</a>";						
@@ -731,7 +728,7 @@ class module_controller {
 	static function CheckZPPYPatch(){
 		$sentoraversion = ctrl_options::GetSystemOption('dbversion');
 		$zppy = ctrl_options::GetSystemOption('sentora_root') . "bin/zppy";
-		if ($sentoraversion < '10.1.0'){	
+		if ($sentoraversion < '1.0.3'){	
 			if (file_exists($zppy)){
 				$zppy = file_get_contents($zppy);
 				if(strpos($zppy, '/**REPO_BROWSER**/') !== FALSE){

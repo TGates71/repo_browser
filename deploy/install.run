@@ -4,6 +4,7 @@
  * Version : 101
  * Author :  RusTus (RusTus @ ZPanel Forums)
  * Email : rustus@zpanelcp.com
+ * Maintained by: TGates (http://www.sentora.org)
  */
 
 require_once('cnf/db.php');

@@ -1,4 +1,12 @@
 <?php
+/**
+ * Upgrade script for Repo Browser Module for ZPanel 10.X
+ * Version : 101
+ * Author :  RusTus (RusTus @ ZPanel Forums)
+ * Email : rustus@zpanelcp.com
+ * Maintained by: TGates (http://www.sentora.org)
+ */
+ 
 error_reporting(E_ERROR | E_PARSE);
 require_once('../../../cnf/db.php');
 require_once('../../../dryden/db/driver.class.php');
@@ -51,22 +59,18 @@ function AjaxReturn($url=NULL){
 		if (UrlExist($urlparts[1])){
 			//EXIST
 			if ($urlparts[0] == "R"){
-			//$line = "<a href=\"javascript:void(0)\" title=\"Repository appears to be valid.\"><img src=\"modules/repo_browser/assets/up.png\" border=\"0\"></a>";
 			$line = "<a href=\"javascript:void(0)\" title=\"Repository appears to be valid.\"><span class=\"label label-success\">OK</span></a>";
 			}
 			if ($urlparts[0] == "M"){
-			//$line =  "<a href=\"javascript:void(0)\" title=\"Module appears to exist in the repository and is available for installation.\"><img src=\"modules/repo_browser/assets/up.png\" border=\"0\"></a>";
 			$line =  "<a href=\"javascript:void(0)\" title=\"Module appears to exist in the repository and is available for installation.\"><span class=\"label label-success\">OK</span></a>";
 			}
 			echo $line;		
 		} else {
 			//NOT EXIST
 			if ($urlparts[0] == "R"){
-			//$line =  "<a href=\"javascript:void(0)\" title=\"Repository seems to be invalid or offline.\"><img src=\"modules/repo_browser/assets/down.png\" border=\"0\"></a>";
 			$line =  "<a href=\"javascript:void(0)\" title=\"Repository seems to be invalid or offline.\"><span class=\"label label-danger\">NO</span></a>";
 			}
 			if ($urlparts[0] == "M"){
-			//$line =  "<a href=\"javascript:void(0)\" title=\"Can not find module in the repository! Module is currently not available for installation.\"><img src=\"modules/repo_browser/assets/down.png\" border=\"0\"></a>";
 			$line =  "<a href=\"javascript:void(0)\" title=\"Can not find module in the repository! Module is currently not available for installation.\"><span class=\"label label-danger\">NO</span></a>";
 			}
 			echo $line;
@@ -193,7 +197,7 @@ function AjaxReturnDownloads($Module=NULL){
 	$Module = explode(":::", $Module);
 	$reponame = $Module[0];
 	$modulename = $Module[1];
-	$url  	 = "http://" . $reponame . "/repostatslist";
+	$url = "http://" . $reponame . "/repostatslist";
 	if (UrlExist($url)){
        		$file_handle = fopen($url, "r");
 			while (!feof($file_handle)) {
@@ -206,7 +210,7 @@ function AjaxReturnDownloads($Module=NULL){
 			}
 			fclose($file_handle);
 	} else {
-		$url  	 = "http://" . $reponame . "/repostats.php";
+		$url = "http://" . $reponame . "/repostats.php";
 		$jsonurl = "http://" . $reponame . "/repostats.php?json=true";
 		if (UrlExist($url)){
 			$repostats = json_decode(file_get_contents($jsonurl), true);
@@ -249,7 +253,7 @@ function UrlExist($url){
 
 function AjaxGetModuleXMLTags($modulefolder) {
 	global $zlo;
-    $mod_xml = ctrl_options::GetSystemOption('zpanel_root') . "/modules/" . $modulefolder . "/module.xml";
+    $mod_xml = ctrl_options::GetSystemOption('sentora_root') . "/modules/" . $modulefolder . "/module.xml";
     $info = array();
     try {
     	$mod_config = new xml_reader(fs_filehandler::ReadFileContents($mod_xml));
